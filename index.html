@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Discovery — Countries & Capital City History</title>
   <meta name="description" content="Discover nations of the world, their capital cities, rich historical origins, former capitals, relocation timelines, interactive world map, and trivia challenges.">
-  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -67,7 +66,7 @@
 
       <!-- Live Stats Grid -->
       <div class="hero-stats" id="heroStatsGrid">
-        <!-- Rendered via JS -->
+        <!-- Rendered via Explorer component -->
       </div>
     </div>
   </section>
@@ -128,35 +127,35 @@
         </div>
       </section>
 
-      <!-- Country Cards / Table Grid Container -->
+      <!-- Country Cards Container -->
       <section class="country-grid" id="explorerGrid">
-        <!-- Dynamic Cards rendered via app.js -->
+        <!-- Rendered via Explorer component -->
       </section>
     </div>
 
     <!-- World Map Visualizer View -->
     <div id="mapView" class="view-container" style="display: none;">
-      <!-- Interactive SVG Map rendered via map.js -->
+      <!-- Interactive SVG Map rendered via WorldMap component -->
     </div>
 
     <!-- Capital Relocation History Timeline View -->
     <div id="timelineView" class="view-container" style="display: none;">
-      <!-- Timeline rendered via timeline.js -->
+      <!-- Timeline rendered via HistoryTimeline component -->
     </div>
 
     <!-- Quiz & Trivia Arena View -->
     <div id="quizView" class="view-container" style="display: none;">
-      <!-- Quiz rendered via quiz.js -->
+      <!-- Quiz rendered via QuizArena component -->
     </div>
 
     <!-- Side-by-Side Country Compare View -->
     <div id="compareView" class="view-container" style="display: none;">
-      <!-- Compare rendered via compare.js -->
+      <!-- Compare rendered via CompareView component -->
     </div>
 
     <!-- Bookmarks View -->
     <div id="bookmarksView" class="view-container" style="display: none;">
-      <!-- Saved items rendered via app.js -->
+      <!-- Saved items rendered via BookmarksView component -->
     </div>
 
   </main>
@@ -165,7 +164,7 @@
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true" role="dialog">
     <div class="modal-card">
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">✕</button>
-      <div class="modal-header">
+      <div class="modal-header" id="modalHeaderContent">
         <h2 id="modalTitle" style="font-size: 1.75rem; color: var(--text-bright);">Country Detail</h2>
       </div>
       <div class="modal-body" id="modalBodyContent">
@@ -178,7 +177,7 @@
   <footer class="site-footer">
     <div class="container">
       <p style="margin-bottom: 0.5rem;">
-        <strong>CAPITALIA</strong> — Global Discovery Site • Crafted with pure HTML, CSS, and plain JavaScript
+        <strong>CAPITALIA</strong> — Global Discovery Site • Rebuilt with Vite + TypeScript
       </p>
       <p style="font-size: 0.8rem;">
         Explore sovereign capitals, ancient imperial seats, architectural origins, and geopolitical relocations.
@@ -186,12 +185,7 @@
     </div>
   </footer>
 
-  <!-- Core JavaScript Libraries -->
-  <script src="js/data.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/timeline.js"></script>
-  <script src="js/quiz.js"></script>
-  <script src="js/compare.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Application Entry Point -->
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

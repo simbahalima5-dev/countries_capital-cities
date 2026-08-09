@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Discovery — Countries & Capital City History</title>
+  <meta name="description" content="Discover nations of the world, their capital cities, rich historical origins, former capitals, relocation timelines, interactive world map, and trivia challenges.">
+  <script type="module" crossorigin src="/assets/index-rpMhuSrh.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CyFNxqSz.css">
+</head>
+<body>
+
+  <!-- Site Sticky Header & Navigation Bar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="brand-logo">
+        <div class="brand-icon">🏛️</div>
+        <div>
+          <h1 class="brand-title">CAPITALIA</h1>
+          <div class="brand-tagline">Countries & Capital History</div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <nav class="nav-tabs" aria-label="Main Navigation">
+        <button class="nav-btn active" data-tab="explorer" id="tabExplorer">
+          <span>🌐</span> Explore Nations
+        </button>
+        <button class="nav-btn" data-tab="map" id="tabMap">
+          <span>🗺️</span> World Map
+        </button>
+        <button class="nav-btn" data-tab="timeline" id="tabTimeline">
+          <span>⏳</span> History Timeline
+        </button>
+        <button class="nav-btn" data-tab="quiz" id="tabQuiz">
+          <span>🏆</span> Trivia Challenge
+        </button>
+        <button class="nav-btn" data-tab="compare" id="tabCompare">
+          <span>⚖️</span> Side-by-Side
+        </button>
+        <button class="nav-btn" data-tab="bookmarks" id="tabBookmarks">
+          <span>⭐</span> Bookmarks
+        </button>
+      </nav>
+
+      <!-- Theme Switcher & Actions -->
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark/Sepia Theme">
+          ☀️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>✨</span> Global Geopolitical & Historical Discovery
+      </div>
+      <h2 class="hero-title">
+        Uncover the Stories Behind <span>World Capitals</span>
+      </h2>
+      <p class="hero-subtitle">
+        Explore why Kyoto became Tokyo, how Washington D.C. emerged from a political compromise, why Brazil built Brasília in the savannah, and how nations relocated their seats of power across millennia.
+      </p>
+
+      <!-- Live Stats Grid -->
+      <div class="hero-stats" id="heroStatsGrid">
+        <!-- Rendered via Explorer component -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="container" id="mainContainer">
+
+    <!-- Explorer View (Default View) -->
+    <div id="explorerView" class="view-container">
+      
+      <!-- Toolbar Section: Search & Filter Controls -->
+      <section class="toolbar-section" id="toolbarSection">
+        <div class="toolbar-top">
+          <!-- Live Search Bar -->
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search by country, capital city, or former capital (e.g., Kyoto, Edo, Lagos)...">
+          </div>
+
+          <!-- Controls: Sort & Grid/List View -->
+          <div class="control-group">
+            <select class="select-dropdown" id="sortSelect" aria-label="Sort Nations">
+              <option value="name">Sort by Country (A-Z)</option>
+              <option value="capital">Sort by Capital Name</option>
+              <option value="pop-high">Sort by Population (High to Low)</option>
+              <option value="pop-low">Sort by Population (Low to High)</option>
+              <option value="year">Sort by Capital Founding Year</option>
+            </select>
+
+            <div class="view-toggle" aria-label="Toggle Layout View">
+              <button class="view-btn active" data-view="grid" title="Cards Grid View">▦</button>
+              <button class="view-btn" data-view="list" title="Compact List View">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Chips: Continents & Capital Types -->
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div class="filter-chips" id="continentFilters">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-right: 0.5rem;">CONTINENTS:</span>
+            <button class="chip-btn active" data-continent="All">All Continents</button>
+            <button class="chip-btn" data-continent="Asia">Asia</button>
+            <button class="chip-btn" data-continent="Europe">Europe</button>
+            <button class="chip-btn" data-continent="North America">North America</button>
+            <button class="chip-btn" data-continent="South America">South America</button>
+            <button class="chip-btn" data-continent="Africa">Africa</button>
+            <button class="chip-btn" data-continent="Oceania">Oceania</button>
+          </div>
+
+          <div class="filter-chips" id="typeFilters">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-right: 0.5rem;">CAPITAL TYPE:</span>
+            <button class="chip-btn active" data-type="All">All Types</button>
+            <button class="chip-btn" data-type="Ancient">Ancient Cities</button>
+            <button class="chip-btn" data-type="Planned City">Planned Cities</button>
+            <button class="chip-btn" data-type="Historical Relocation">Relocated Capitals</button>
+            <button class="chip-btn" data-type="Political Compromise">Political Compromises</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Country Cards Container -->
+      <section class="country-grid" id="explorerGrid">
+        <!-- Rendered via Explorer component -->
+      </section>
+    </div>
+
+    <!-- World Map Visualizer View -->
+    <div id="mapView" class="view-container" style="display: none;">
+      <!-- Interactive SVG Map rendered via WorldMap component -->
+    </div>
+
+    <!-- Capital Relocation History Timeline View -->
+    <div id="timelineView" class="view-container" style="display: none;">
+      <!-- Timeline rendered via HistoryTimeline component -->
+    </div>
+
+    <!-- Quiz & Trivia Arena View -->
+    <div id="quizView" class="view-container" style="display: none;">
+      <!-- Quiz rendered via QuizArena component -->
+    </div>
+
+    <!-- Side-by-Side Country Compare View -->
+    <div id="compareView" class="view-container" style="display: none;">
+      <!-- Compare rendered via CompareView component -->
+    </div>
+
+    <!-- Bookmarks View -->
+    <div id="bookmarksView" class="view-container" style="display: none;">
+      <!-- Saved items rendered via BookmarksView component -->
+    </div>
+
+  </main>
+
+  <!-- Modal Popup Window for Detailed History -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">✕</button>
+      <div class="modal-header" id="modalHeaderContent">
+        <h2 id="modalTitle" style="font-size: 1.75rem; color: var(--text-bright);">Country Detail</h2>
+      </div>
+      <div class="modal-body" id="modalBodyContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin-bottom: 0.5rem;">
+        <strong>CAPITALIA</strong> — Global Discovery Site • Rebuilt with Vite + TypeScript
+      </p>
+      <p style="font-size: 0.8rem;">
+        Explore sovereign capitals, ancient imperial seats, architectural origins, and geopolitical relocations.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Application Entry Point -->
+</body>
+</html>
